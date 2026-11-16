@@ -5,146 +5,186 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AI at the Doctor's — Mapping the Impact of AI through Data</title>
   <meta name="description" content="AI at the Doctor's: where is AI actually entering medicine? Data Visualization course project, Università di Genova.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;1,400&amp;family=Roboto+Slab:wght@500;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <p class="course">Data Visualization Project · Università di Genova · 2026/27</p>
+  <header class="hero">
+    <nav class="nav" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a class="brand" href="#top">Polygon</a>
+        <ul>
+          <li><a href="#project">Project</a></li>
+          <li><a href="#questions">Questions</a></li>
+          <li><a href="#audience">Audience</a></li>
+          <li><a href="#data">Data</a></li>
+          <li><a href="#visualizations">Visualizations</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container hero-content" id="top">
+      <p class="eyebrow">Data Visualization Project · Università di Genova · 2026/27</p>
       <h1>AI at the Doctor's</h1>
-      <p class="tagline">Where is AI actually entering medicine?</p>
-      <p class="subtitle">
-        Group <strong>Polygon</strong> —
-        <span class="members">Inès Gbadamassi, Maryse Goeh-Akue, James Fosting Tahku, Illia</span>
+      <p class="hero-question">Where is AI actually entering medicine?</p>
+      <p class="hero-group">
+        Group <strong>Polygon</strong> · Inès Gbadamassi, Maryse Goeh-Akue, James Fosting Tahku, Illia
       </p>
     </div>
   </header>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="container">
-      <ul>
-        <li><a href="#project">Project</a></li>
-        <li><a href="#questions">Questions</a></li>
-        <li><a href="#audience">Audience</a></li>
-        <li><a href="#data">Data</a></li>
-        <li><a href="#pages">Visualizations</a></li>
-      </ul>
-    </div>
-  </nav>
+  <main>
+    <section id="project" class="section">
+      <div class="container">
+        <p class="section-label">01 · Context</p>
+        <h2>Behind the hype: what is actually authorized?</h2>
+        <p class="lead">
+          AI is often said to be about to “revolutionize medicine”. To see where it is really used,
+          we follow the medical devices that regulators have actually authorized.
+        </p>
 
-  <main class="container">
-    <section id="project">
-      <h2>1. The project</h2>
-      <p>
-        AI is often said to be about to “revolutionize medicine”. To see where it is really used,
-        we follow the medical devices that regulators have actually authorized.
-      </p>
-      <p>
-        Our main source is the <abbr title="U.S. Food and Drug Administration">FDA</abbr>, the U.S. agency that must
-        authorize a medical device before it can be sold in the United States. It publishes the only
-        public list of AI-enabled medical devices.
-      </p>
+        <ul class="stats" aria-label="Key figures">
+          <li class="stat stat-1"><span class="stat-value">1,614</span><span class="stat-label">AI-enabled devices on the FDA list (June 2026)</span></li>
+          <li class="stat stat-2"><span class="stat-value">76%</span><span class="stat-label">of them are in radiology</span></li>
+          <li class="stat stat-3"><span class="stat-value">0</span><span class="stat-label">devices based on generative AI or LLMs (Sept 2026)</span></li>
+          <li class="stat stat-4"><span class="stat-value">2.4%</span><span class="stat-label">of supporting clinical studies are randomized</span></li>
+        </ul>
 
-      <ul class="key-figures" aria-label="Key figures">
-        <li><span class="figure">1,614</span> AI-enabled devices on the FDA list (June 2026)</li>
-        <li><span class="figure">~76%</span> of them are in radiology</li>
-        <li><span class="figure">0</span> devices based on generative AI or LLMs (Sept 2026)</li>
-        <li><span class="figure">2.4%</span> of supporting clinical studies are randomized</li>
-      </ul>
-      <p class="note">
-        Figures from
-        <a href="https://www.complizen.ai/post/fda-has-cleared-1614-ai-medical-devices">Complizen (2026)</a>,
-        <a href="https://medicalfuturist.com/the-current-state-of-fda-approved-ai-based-medical-devices">The Medical Futurist (2026)</a> and
-        <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2833324">JAMA Network Open (2025)</a>.
-        We will recompute them ourselves from the FDA data.
-      </p>
+        <div class="definition">
+          <p>
+            <strong>FDA</strong> — U.S. Food and Drug Administration: the agency that must authorize a
+            medical device before it can be sold in the United States. It publishes the only public
+            list of AI-enabled medical devices, the backbone of our project.
+          </p>
+        </div>
+        <p class="note">
+          Figures from
+          <a href="https://www.complizen.ai/post/fda-has-cleared-1614-ai-medical-devices">Complizen (2026)</a>,
+          <a href="https://medicalfuturist.com/the-current-state-of-fda-approved-ai-based-medical-devices">The Medical Futurist (2026)</a> and
+          <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2833324">JAMA Network Open (2025)</a>.
+          We will recompute them ourselves from the FDA data.
+        </p>
+      </div>
     </section>
 
-    <section id="questions">
-      <h2>2. Research questions</h2>
-      <p class="main-question">
-        <strong>Main question:</strong> Despite the narrative that AI “will revolutionize medicine”,
-        in which medical fields is AI actually authorized and used?
-      </p>
-      <ol>
-        <li>How has the number of authorized AI medical devices evolved?</li>
-        <li>Why does radiology dominate?</li>
-        <li>How large is the gap between published research, clinical trials and authorized products?</li>
-        <li>Which incidents or failures have been recorded?</li>
-      </ol>
+    <section id="questions" class="section section-tint">
+      <div class="container">
+        <p class="section-label">02 · Research questions</p>
+        <h2>Our questions</h2>
+        <div class="main-question">
+          <p class="main-question-label">Main question</p>
+          <p class="main-question-text">
+            Despite the narrative that AI “will revolutionize medicine”, in which medical fields is AI
+            actually authorized and used?
+          </p>
+        </div>
+        <ol class="question-grid">
+          <li class="question q-1"><span class="q-num">Q1</span><p>How has the number of authorized AI medical devices evolved?</p></li>
+          <li class="question q-2"><span class="q-num">Q2</span><p>Why does radiology dominate?</p></li>
+          <li class="question q-3"><span class="q-num">Q3</span><p>How large is the gap between published research, clinical trials and authorized products?</p></li>
+          <li class="question q-4"><span class="q-num">Q4</span><p>Which incidents or failures have been recorded?</p></li>
+        </ol>
+      </div>
     </section>
 
-    <section id="audience">
-      <h2>3. Intended audience</h2>
-      <ul>
-        <li><strong>Health students and professionals:</strong> which AI tools are really authorized in their field?</li>
-        <li><strong>General public interested in health:</strong> what does “AI in medicine” actually mean today?</li>
-      </ul>
-      <p>
-        For both audiences: one message per chart, plain-language annotations, a glossary for
-        regulatory terms, and every number linked to its source.
-      </p>
+    <section id="audience" class="section">
+      <div class="container">
+        <p class="section-label">03 · Intended audience</p>
+        <h2>Who we are telling this story to</h2>
+        <div class="audience-grid">
+          <article class="card">
+            <span class="pill pill-1">Primary</span>
+            <h3>Health students &amp; professionals</h3>
+            <p>Which AI tools are really authorized in their field, and how solid is the evidence behind them?</p>
+          </article>
+          <article class="card">
+            <span class="pill pill-2">Secondary</span>
+            <h3>General public interested in health</h3>
+            <p>What does “AI in medicine” actually mean today, beyond the headlines?</p>
+          </article>
+        </div>
+        <ul class="principles">
+          <li>One message per chart</li>
+          <li>Plain-language annotations</li>
+          <li>Glossary for regulatory terms</li>
+          <li>Every number sourced</li>
+        </ul>
+      </div>
     </section>
 
-    <section id="data">
-      <h2>4. Data at hand</h2>
-      <ul class="sources">
-        <li>
-          <a href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices">FDA — AI-Enabled Medical Devices list</a>:
-          about 1,600 devices with decision date, specialty, company and clearance pathway (Q1, Q2).
-        </li>
-        <li>
-          <a href="https://open.fda.gov/apis/device/510k">openFDA — 510(k) API</a>:
-          applicant country and city, joined by submission number (Q1, Q2).
-        </li>
-        <li>
-          <a href="https://clinicaltrials.gov/data-api/api">ClinicalTrials.gov — API v2</a>:
-          AI and machine-learning trials by year, phase, condition and country (Q3).
-        </li>
-        <li>
-          <a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">PubMed — E-utilities</a>:
-          number of “AI + specialty” publications per year (Q3).
-        </li>
-        <li>
-          <a href="https://open.fda.gov/apis/device">openFDA — device recalls and MAUDE</a>:
-          recalls and adverse-event reports for AI devices (Q4).
-        </li>
-        <li>
-          <a href="https://incidentdatabase.ai">AI Incident Database</a>:
-          documented AI failures, filterable for healthcare (Q4).
-        </li>
-      </ul>
+    <section id="data" class="section section-tint">
+      <div class="container">
+        <p class="section-label">04 · Datasets</p>
+        <h2>Data at hand</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr><th scope="col">Dataset</th><th scope="col">What it contributes</th><th scope="col">Questions</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices">FDA — AI-Enabled Medical Devices list</a></td>
+                <td>~1,600 devices with decision date, specialty, company and clearance pathway</td>
+                <td><span class="tag">Q1</span> <span class="tag">Q2</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://open.fda.gov/apis/device/510k">openFDA — 510(k) API</a></td>
+                <td>Applicant country and city, joined by submission number</td>
+                <td><span class="tag">Q1</span> <span class="tag">Q2</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://clinicaltrials.gov/data-api/api">ClinicalTrials.gov — API v2</a></td>
+                <td>AI and machine-learning trials by year, phase, condition and country</td>
+                <td><span class="tag">Q3</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">PubMed — E-utilities</a></td>
+                <td>Number of “AI + specialty” publications per year</td>
+                <td><span class="tag">Q3</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://open.fda.gov/apis/device">openFDA — device recalls &amp; MAUDE</a></td>
+                <td>Recalls and adverse-event reports for AI devices</td>
+                <td><span class="tag">Q4</span></td>
+              </tr>
+              <tr>
+                <td><a href="https://incidentdatabase.ai">AI Incident Database</a></td>
+                <td>Documented AI failures, filterable for healthcare</td>
+                <td><span class="tag">Q4</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-      <h3>Known limits</h3>
-      <ul>
-        <li>The FDA list covers the United States only and is updated retroactively, so yearly counts differ between sources.</li>
-        <li>Europe has no complete public equivalent yet (EUDAMED is still incomplete).</li>
-        <li>An authorization does not tell us whether a device is actually used in hospitals.</li>
-        <li>MAUDE under-reports AI-specific failures; we cross-check with recalls and incident reports.</li>
-      </ul>
+        <h3 class="subhead">Known limits</h3>
+        <div class="limits-grid">
+          <div class="limit"><h4>US-only list</h4><p>Updated retroactively, so yearly counts differ between sources.</p></div>
+          <div class="limit"><h4>No EU equivalent</h4><p>EUDAMED is still incomplete: Europe is shown as a documented gap.</p></div>
+          <div class="limit"><h4>Authorized ≠ used</h4><p>No data on real hospital use: we say “authorized”, not “adopted”.</p></div>
+          <div class="limit"><h4>Under-reported failures</h4><p>MAUDE misses AI-specific errors: we cross-check recalls and incidents.</p></div>
+        </div>
+      </div>
     </section>
 
-    <section id="pages">
-      <h2>5. Visualizations</h2>
-      <p>Planned pages, one per question:</p>
-      <ul>
-        <li><strong>Stacked area chart</strong> — authorizations by specialty over time (Q1)</li>
-        <li><strong>Treemap</strong> — radiology's share of all AI devices (Q2)</li>
-        <li><strong>Network graph</strong> — companies linked to the specialties they build for (Q2)</li>
-        <li><strong>World map</strong> — where devices are made and where AI trials take place (Q1, Q3)</li>
-        <li><strong>Funnel</strong> — publications → clinical trials → authorized devices (Q3)</li>
-        <li><strong>Timeline</strong> — recalls and incidents after authorization (Q4)</li>
-      </ul>
-      <p class="placeholder">First visualizations coming soon.</p>
+    <section id="visualizations" class="section">
+      <div class="container">
+        <p class="section-label">05 · Visualizations</p>
+        <h2>One chart per question</h2>
+        <div class="viz-grid">
+          <article class="viz"><span class="tag">Q1</span><h3>Stacked area chart</h3><p>Authorizations by specialty over time</p></article>
+          <article class="viz"><span class="tag">Q2</span><h3>Treemap</h3><p>Radiology's share of all AI devices</p></article>
+          <article class="viz"><span class="tag">Q2</span><h3>Network graph</h3><p>Companies linked to the specialties they build for</p></article>
+          <article class="viz"><span class="tag">Q1</span> <span class="tag">Q3</span><h3>World map</h3><p>Where devices are made and where AI trials take place</p></article>
+          <article class="viz"><span class="tag">Q3</span><h3>Funnel</h3><p>Publications → clinical trials → authorized devices</p></article>
+          <article class="viz"><span class="tag">Q4</span><h3>Timeline</h3><p>Recalls and incidents after authorization</p></article>
+        </div>
+        <p class="coming-soon">First interactive visualizations coming soon.</p>
+      </div>
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer class="footer">
     <div class="container">
-      <p>Data Visualization course — Università degli Studi di Genova. Data sources are credited above.</p>
+      <p><strong>AI at the Doctor's</strong> · Group Polygon · Data Visualization course, Università degli Studi di Genova</p>
+      <p class="footer-small">All data sources are credited and linked above.</p>
     </div>
   </footer>
 </body>
