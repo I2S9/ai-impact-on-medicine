@@ -6,13 +6,19 @@
   <title>AI at the Doctor's — Mapping the Impact of AI through Data</title>
   <meta name="description" content="AI at the Doctor's: where is AI actually entering medicine? Data Visualization course project, Università di Genova.">
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="hero">
     <nav class="nav" aria-label="Main navigation">
       <div class="container nav-inner">
         <a class="brand" href="#top">Polygon</a>
-        <ul>
+        <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul id="nav-menu" class="nav-menu">
           <li><a href="#project">Project</a></li>
           <li><a href="#questions">Questions</a></li>
           <li><a href="#audience">Audience</a></li>
@@ -22,7 +28,6 @@
       </div>
     </nav>
     <div class="container hero-content" id="top">
-      <p class="eyebrow">Data Visualization Project · Università di Genova · 2026/27</p>
       <h1>AI at the Doctor's</h1>
       <p class="hero-question">Where is AI actually entering medicine?</p>
       <p class="hero-group">
@@ -117,34 +122,34 @@
             </thead>
             <tbody>
               <tr>
-                <td><a href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices">FDA — AI-Enabled Medical Devices list</a></td>
-                <td>~1,600 devices with decision date, specialty, company and clearance pathway</td>
-                <td><span class="tag">Q1</span> <span class="tag">Q2</span></td>
+                <td data-label="Dataset"><a href="https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices">FDA — AI-Enabled Medical Devices list</a></td>
+                <td data-label="What it contributes">~1,600 devices with decision date, specialty, company and clearance pathway</td>
+                <td data-label="Questions"><span class="tag">Q1</span> <span class="tag">Q2</span></td>
               </tr>
               <tr>
-                <td><a href="https://open.fda.gov/apis/device/510k">openFDA — 510(k) API</a></td>
-                <td>Applicant country and city, joined by submission number</td>
-                <td><span class="tag">Q1</span> <span class="tag">Q2</span></td>
+                <td data-label="Dataset"><a href="https://open.fda.gov/apis/device/510k">openFDA — 510(k) API</a></td>
+                <td data-label="What it contributes">Applicant country and city, joined by submission number</td>
+                <td data-label="Questions"><span class="tag">Q1</span> <span class="tag">Q2</span></td>
               </tr>
               <tr>
-                <td><a href="https://clinicaltrials.gov/data-api/api">ClinicalTrials.gov — API v2</a></td>
-                <td>AI and machine-learning trials by year, phase, condition and country</td>
-                <td><span class="tag">Q3</span></td>
+                <td data-label="Dataset"><a href="https://clinicaltrials.gov/data-api/api">ClinicalTrials.gov — API v2</a></td>
+                <td data-label="What it contributes">AI and machine-learning trials by year, phase, condition and country</td>
+                <td data-label="Questions"><span class="tag">Q3</span></td>
               </tr>
               <tr>
-                <td><a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">PubMed — E-utilities</a></td>
-                <td>Number of “AI + specialty” publications per year</td>
-                <td><span class="tag">Q3</span></td>
+                <td data-label="Dataset"><a href="https://www.ncbi.nlm.nih.gov/books/NBK25501/">PubMed — E-utilities</a></td>
+                <td data-label="What it contributes">Number of “AI + specialty” publications per year</td>
+                <td data-label="Questions"><span class="tag">Q3</span></td>
               </tr>
               <tr>
-                <td><a href="https://open.fda.gov/apis/device">openFDA — device recalls &amp; MAUDE</a></td>
-                <td>Recalls and adverse-event reports for AI devices</td>
-                <td><span class="tag">Q4</span></td>
+                <td data-label="Dataset"><a href="https://open.fda.gov/apis/device">openFDA — device recalls &amp; MAUDE</a></td>
+                <td data-label="What it contributes">Recalls and adverse-event reports for AI devices</td>
+                <td data-label="Questions"><span class="tag">Q4</span></td>
               </tr>
               <tr>
-                <td><a href="https://incidentdatabase.ai">AI Incident Database</a></td>
-                <td>Documented AI failures, filterable for healthcare</td>
-                <td><span class="tag">Q4</span></td>
+                <td data-label="Dataset"><a href="https://incidentdatabase.ai">AI Incident Database</a></td>
+                <td data-label="What it contributes">Documented AI failures, filterable for healthcare</td>
+                <td data-label="Questions"><span class="tag">Q4</span></td>
               </tr>
             </tbody>
           </table>
