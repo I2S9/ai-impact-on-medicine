@@ -467,11 +467,6 @@ svg .axis text {
   margin: 0.2rem 0;
 }
 
-.footer-small {
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
 /* ---------- Small screens ---------- */
 @media (max-width: 860px) {
   .viz-grid {
