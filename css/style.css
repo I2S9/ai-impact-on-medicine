@@ -119,6 +119,51 @@ a {
   margin-bottom: 0.6rem;
 }
 
+.tagline {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.key-figures {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.key-figures li {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.key-figures .figure {
+  display: block;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--unige-blue);
+}
+
+.note {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.main-question {
+  font-size: 1.2rem;
+  padding: 1rem 1.25rem;
+  background: var(--unige-blue-light);
+}
+
+abbr[title] {
+  text-decoration: underline dotted;
+  cursor: help;
+}
+
 .placeholder {
   color: var(--muted);
   font-style: italic;
