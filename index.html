@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2026-11-26n">
+  <link rel="stylesheet" href="css/style.css?v=2026-11-26o">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
-  <script src="data/chart-data.js?v=2026-11-26n" defer></script>
-  <script src="js/main.js?v=2026-11-26n" defer></script>
-  <script src="js/charts.js?v=2026-11-26n" defer></script>
-  <script src="js/hero3d.js?v=2026-11-26n" defer></script>
+  <script src="data/chart-data.js?v=2026-11-26o" defer></script>
+  <script src="js/main.js?v=2026-11-26o" defer></script>
+  <script src="js/charts.js?v=2026-11-26o" defer></script>
+  <script src="js/hero3d.js?v=2026-11-26o" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -64,21 +64,16 @@
   </header>
 
   <section class="hero" id="top">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1">
+      <source src="https://videos.pexels.com/video-files/5453579/5453579-hd_1920_1080_25fps.mp4" type="video/mp4">
+      <source src="https://videos.pexels.com/video-files/5453579/5453579-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="container hero-inner">
       <div class="hero-content">
         <h1 class="hero-line">AI at the Doctor's</h1>
         <p class="hero-question hero-line">Where is AI actually entering medicine?</p>
       </div>
-      <figure class="hero-visual hero-line">
-        <div class="hero-3d" id="hero-3d" role="img" aria-label="A rotating sphere of 1,524 points, one for each AI-enabled medical device authorized by the FDA, coloured by specialty."></div>
-        <figcaption class="hero-caption">
-          <span class="legend-item"><span class="swatch swatch-radiology"></span>Radiology</span>
-          <span class="legend-item"><span class="swatch swatch-cardio"></span>Cardiovascular</span>
-          <span class="legend-item"><span class="swatch swatch-neuro"></span>Neurology</span>
-          <span class="legend-item"><span class="swatch swatch-other"></span>Other</span>
-          <span class="hero-caption-note">One point per authorized AI device (1,524)</span>
-        </figcaption>
-      </figure>
     </div>
   </section>
 
@@ -86,27 +81,39 @@
     <section id="inspiration" class="section section-why">
       <div class="container">
         <h2 class="reveal">Inspiration</h2>
-        <div class="prose">
-          <p class="reveal">
-            Our course asks us to map the impact of AI through data. Most public conversations about that impact
-            are made of forecasts, promises and fears, which are hard to check. We wanted a field where the impact
-            of AI leaves a measurable and public trace, and medicine offers exactly that: before an AI tool can be
-            used on patients in the United States, the FDA has to authorize it, and every authorization is recorded
-            with a date, a medical specialty and a regulatory pathway.
-          </p>
-          <p class="reveal">
-            Health is also where the impact of AI matters most directly. When a recommendation algorithm fails, a
-            user sees the wrong video; when a diagnostic tool fails, a patient can receive the wrong diagnosis.
-            Headlines regularly announce that AI will “revolutionize medicine”, yet few people know which tools are
-            actually approved, in which specialties, and on what evidence. Showing the gap between this narrative
-            and the authorized reality seemed both useful and timely.
-          </p>
-          <p class="reveal">
-            Finally, the topic suits the tools of data visualization. The FDA list is open, regularly updated and
-            rich enough to be compared across years, specialties and regulatory pathways, and it can be linked to
-            clinical trials, scientific publications and safety reports. It turns a vague question, “is AI changing
-            medicine?”, into precise questions that charts can answer.
-          </p>
+        <div class="why-grid">
+          <div class="prose">
+            <p class="reveal">
+              Our course asks us to map the impact of AI through data. Most public conversations about that impact
+              are made of forecasts, promises and fears, which are hard to check. We wanted a field where the impact
+              of AI leaves a measurable and public trace, and medicine offers exactly that: before an AI tool can be
+              used on patients in the United States, the FDA has to authorize it, and every authorization is recorded
+              with a date, a medical specialty and a regulatory pathway.
+            </p>
+            <p class="reveal">
+              Health is also where the impact of AI matters most directly. When a recommendation algorithm fails, a
+              user sees the wrong video; when a diagnostic tool fails, a patient can receive the wrong diagnosis.
+              Headlines regularly announce that AI will “revolutionize medicine”, yet few people know which tools are
+              actually approved, in which specialties, and on what evidence. Showing the gap between this narrative
+              and the authorized reality seemed both useful and timely.
+            </p>
+            <p class="reveal">
+              Finally, the topic suits the tools of data visualization. The FDA list is open, regularly updated and
+              rich enough to be compared across years, specialties and regulatory pathways, and it can be linked to
+              clinical trials, scientific publications and safety reports. It turns a vague question, “is AI changing
+              medicine?”, into precise questions that charts can answer.
+            </p>
+          </div>
+          <figure class="hero-visual why-visual reveal">
+            <div class="hero-3d" id="hero-3d" role="img" aria-label="A rotating sphere of 1,524 points, one for each AI-enabled medical device authorized by the FDA, coloured by specialty."></div>
+            <figcaption class="hero-caption">
+              <span class="legend-item"><span class="swatch swatch-radiology"></span>Radiology</span>
+              <span class="legend-item"><span class="swatch swatch-cardio"></span>Cardiovascular</span>
+              <span class="legend-item"><span class="swatch swatch-neuro"></span>Neurology</span>
+              <span class="legend-item"><span class="swatch swatch-other"></span>Other</span>
+              <span class="hero-caption-note">One point per authorized AI device (1,524)</span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -354,8 +361,33 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
+    <div class="container footer-inner">
+      <svg class="brand-logo footer-logo" viewBox="-52 -52 104 104" aria-hidden="true" focusable="false">
+        <g fill="none" stroke="#6b7280" stroke-width="4">
+          <ellipse rx="44" ry="17" transform="rotate(-60)"/>
+          <ellipse rx="44" ry="17" transform="rotate(0)"/>
+          <ellipse rx="44" ry="17" transform="rotate(60)"/>
+        </g>
+        <circle r="11" fill="#f26363"/>
+        <circle cx="-3.5" cy="-4" r="2.6" fill="#ffffff" opacity="0.45"/>
+        <g transform="rotate(-60)">
+          <circle r="7.5" fill="#5ccfee">
+            <animateMotion dur="4.5s" begin="-1s" repeatCount="indefinite" path="M44,0 A44,17 0 1,1 -44,0 A44,17 0 1,1 44,0"/>
+          </circle>
+        </g>
+        <g transform="rotate(0)">
+          <circle r="7.5" fill="#ffcf2e">
+            <animateMotion dur="5.5s" begin="-3s" repeatCount="indefinite" path="M44,0 A44,17 0 1,1 -44,0 A44,17 0 1,1 44,0"/>
+          </circle>
+        </g>
+        <g transform="rotate(60)">
+          <circle r="7.5" fill="#12b76a">
+            <animateMotion dur="5s" begin="-2s" repeatCount="indefinite" path="M44,0 A44,17 0 1,1 -44,0 A44,17 0 1,1 44,0"/>
+          </circle>
+        </g>
+      </svg>
       <p><strong>AI at the Doctor's</strong> · Group Polygon · Data Visualization course, Università degli Studi di Genova</p>
+      <p class="footer-credit">Background video: <a href="https://www.pexels.com/video/man-looking-at-the-x-ray-result-5453579/">Pexels</a></p>
     </div>
   </footer>
 

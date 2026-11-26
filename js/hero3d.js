@@ -1,6 +1,7 @@
-// Hero 3D visual (three.js): a sphere of 1,524 points, one per AI-enabled
-// device on the FDA list, coloured by medical specialty. The points gather
-// into the sphere when the page opens, then the sphere turns slowly and
+// 3D visual of the Inspiration section (three.js): a sphere of 1,524 points,
+// one per AI-enabled device on the FDA list, coloured by medical specialty.
+// The points gather into the sphere the first time it scrolls into view,
+// then the sphere turns slowly and
 // follows the pointer. Paused when off-screen; static if the visitor prefers
 // reduced motion. three.js is loaded with a dynamic import so the page also
 // works when opened locally from a file.
@@ -153,7 +154,8 @@
   var gatherDuration = 2600;
   var startTime = null;
   var gathered = reduceMotion;
-  var visible = true;
+  var hasObserver = "IntersectionObserver" in window;
+  var visible = !hasObserver;
   var running = false;
 
   function easeOut(t) {
@@ -193,13 +195,15 @@
     }
   }
 
-  // Only animate while the hero is on screen.
-  if ("IntersectionObserver" in window) {
+  // Only animate while the sphere is on screen. Before it first appears, one
+  // frame is drawn so that the canvas is never empty.
+  renderer.render(scene, camera);
+  if (hasObserver) {
     new IntersectionObserver(function (entries) {
       visible = entries[0].isIntersecting;
       if (visible && !running) window.requestAnimationFrame(frame);
-    }).observe(container);
+    }, { threshold: 0.2 }).observe(container);
+  } else {
+    window.requestAnimationFrame(frame);
   }
-
-  window.requestAnimationFrame(frame);
 })();
