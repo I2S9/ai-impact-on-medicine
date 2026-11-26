@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=2026-11-26a">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
-  <script src="data/chart-data.js" defer></script>
-  <script src="js/main.js" defer></script>
-  <script src="js/charts.js" defer></script>
-  <script src="js/hero3d.js" defer></script>
+  <script src="data/chart-data.js?v=2026-11-26a" defer></script>
+  <script src="js/main.js?v=2026-11-26a" defer></script>
+  <script src="js/charts.js?v=2026-11-26a" defer></script>
+  <script src="js/hero3d.js?v=2026-11-26a" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -26,6 +26,7 @@
           <span class="nav-toggle-bar"></span>
         </button>
         <ul id="nav-menu" class="nav-menu">
+          <li><a href="#why">Why</a></li>
           <li><a href="#project">Project</a></li>
           <li><a href="#questions">Questions</a></li>
           <li><a href="#charts">Charts</a></li>
@@ -41,9 +42,6 @@
       <div class="hero-content">
         <h1 class="hero-line">AI at the Doctor's</h1>
         <p class="hero-question hero-line">Where is AI actually entering medicine?</p>
-        <p class="hero-group hero-line">
-          Group <strong>Polygon</strong> · Inès Gbadamassi, Maryse Goeh-Akue, James Fosting Tahku, Illia
-        </p>
       </div>
       <figure class="hero-visual hero-line">
         <div class="hero-3d" id="hero-3d" role="img" aria-label="A rotating sphere of 1,524 points, one for each AI-enabled medical device authorized by the FDA, coloured by specialty."></div>
@@ -59,6 +57,34 @@
   </section>
 
   <main>
+    <section id="why" class="section section-why">
+      <div class="container why-grid">
+        <h2 class="reveal">Why this topic?</h2>
+        <div class="prose">
+          <p class="reveal">
+            Our course asks us to map the impact of AI through data. Most public conversations about that impact
+            are made of forecasts, promises and fears, which are hard to check. We wanted a field where the impact
+            of AI leaves a measurable and public trace, and medicine offers exactly that: before an AI tool can be
+            used on patients in the United States, the FDA has to authorize it, and every authorization is recorded
+            with a date, a medical specialty and a regulatory pathway.
+          </p>
+          <p class="reveal">
+            Health is also where the impact of AI matters most directly. When a recommendation algorithm fails, a
+            user sees the wrong video; when a diagnostic tool fails, a patient can receive the wrong diagnosis.
+            Headlines regularly announce that AI will “revolutionize medicine”, yet few people know which tools are
+            actually approved, in which specialties, and on what evidence. Showing the gap between this narrative
+            and the authorized reality seemed both useful and timely.
+          </p>
+          <p class="reveal">
+            Finally, the topic suits the tools of data visualization. The FDA list is open, regularly updated and
+            rich enough to be compared across years, specialties and regulatory pathways, and it can be linked to
+            clinical trials, scientific publications and safety reports. It turns a vague question, “is AI changing
+            medicine?”, into precise questions that charts can answer.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="project" class="section">
       <div class="container">
         <h2 class="reveal">Behind the hype: what is actually authorized?</h2>

@@ -70,6 +70,7 @@ a {
 
 /* Justified body text */
 .lead,
+.prose p,
 .chart-text p,
 .definition p {
   text-align: justify;
@@ -315,6 +316,32 @@ a {
   font-size: 1.12rem;
   color: var(--muted);
   margin: 0 0 2.75rem;
+}
+
+/* ---------- Why this topic ---------- */
+.section-why {
+  border-bottom: 1px solid var(--line);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr);
+  gap: 2rem 4rem;
+  align-items: start;
+}
+
+.why-grid h2 {
+  margin-bottom: 0;
+}
+
+.prose p {
+  margin: 0 0 1.25rem;
+  font-size: 1.08rem;
+  color: var(--text);
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
 }
 
 /* ---------- Key figures ---------- */
@@ -937,6 +964,10 @@ a {
 
 /* ---------- Medium screens ---------- */
 @media (max-width: 980px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
     gap: 1rem;
