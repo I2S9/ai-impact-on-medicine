@@ -810,7 +810,6 @@ a {
   padding: 1.9rem;
   border-radius: var(--radius);
   background: var(--white);
-  border: 1px solid var(--line);
 }
 
 .card h3 {
