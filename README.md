@@ -1,4 +1,4 @@
-# AI at the Doctor's — Where is AI actually entering medicine?
+# AI at the Doctor's: Where is AI actually entering medicine?
 
 Interactive data visualization website for the Data Visualization course, Università di Genova (2026/27).
 Part of the course theme **Mapping the Impact of AI through Data**.
@@ -23,35 +23,66 @@ Despite the narrative that AI "will revolutionize medicine", in which medical fi
 - **Health students and professionals:** which AI tools are really authorized in their field?
 - **General public interested in health:** what does "AI in medicine" actually mean today?
 
+## Charts
+
+The section **Comparing where AI is authorized** compares the 1,524 devices of the FDA list across years, specialties and regulatory pathways.
+
+| Chart | Type | What it shows | Question |
+| --- | --- | --- | --- |
+| Authorizations per year | Bar chart | Growth from 5 devices in 2012 to 333 in 2025 | Q1 |
+| Top five specialties, 2023 to 2025 | Grouped bar chart | Radiology grows faster than all other specialties combined | Q1, Q2 |
+| Specialty by year | Heatmap | Ten years of authorizations, specialty by specialty | Q1, Q2 |
+| Regulatory pathway by specialty | 100% stacked bar chart | 96% of devices go through the 510(k) pathway | Q3 |
+| Out of 100 devices | Waffle chart | 76 of every 100 devices are in radiology | Q2 |
+| Year clock (extra) | Radial dot chart | One dot per device, by year and day of decision | Q1, Q2 |
+
+The homepage also shows a 3D sphere (three.js) with one point per authorized device.
+
 ## Datasets
 
 | Dataset | What it contributes | Questions |
 | --- | --- | --- |
-| [FDA — AI-Enabled Medical Devices list](https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices) | ~1,600 devices with decision date, specialty, company and clearance pathway | Q1, Q2 |
-| [openFDA — 510(k) API](https://open.fda.gov/apis/device/510k) | Applicant country and city, joined by submission number | Q1, Q2 |
-| [ClinicalTrials.gov — API v2](https://clinicaltrials.gov/data-api/api) | AI and machine-learning trials by year, phase, condition and country | Q3 |
-| [PubMed — E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25501/) | Number of "AI + specialty" publications per year | Q3 |
-| [openFDA — device recalls and MAUDE](https://open.fda.gov/apis/device) | Recalls and adverse-event reports for AI devices | Q4 |
+| [FDA: AI-Enabled Medical Devices list](https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices) | 1,524 devices with decision date, specialty, company and clearance pathway (snapshot of 29 June 2026) | Q1, Q2 |
+| [openFDA: 510(k) API](https://open.fda.gov/apis/device/510k) | Applicant country and city, joined by submission number | Q1, Q2 |
+| [ClinicalTrials.gov: API v2](https://clinicaltrials.gov/data-api/api) | AI and machine-learning trials by year, phase, condition and country | Q3 |
+| [PubMed: E-utilities](https://www.ncbi.nlm.nih.gov/books/NBK25501/) | Number of "AI + specialty" publications per year | Q3 |
+| [openFDA: device recalls and MAUDE](https://open.fda.gov/apis/device) | Recalls and adverse-event reports for AI devices | Q4 |
 | [AI Incident Database](https://incidentdatabase.ai) | Documented AI failures, filterable for healthcare | Q4 |
 
-## Planned visualizations
-
-- **Stacked area chart:** authorizations by specialty over time (Q1)
-- **Treemap:** radiology's share of all AI devices (Q2)
-- **Network graph:** companies linked to the specialties they build for (Q2)
-- **World map:** where devices are made and where AI trials take place (Q1, Q3)
-- **Funnel:** publications → clinical trials → authorized devices (Q3)
-- **Timeline:** recalls and incidents after authorization (Q4)
+The FDA list used in the charts comes from the versioned release of Wang et al. (2026), *Clinical-function annotations for 1524 US artificial intelligence medical-device authorizations*, v1.3.0, licensed CC BY 4.0: https://github.com/wang177777/fda-ai-clinical-function-annotations
 
 ## Known data limits
 
 - The FDA list covers the United States only and is updated retroactively, so yearly counts differ between sources.
+- The snapshot of June 2026 contains decisions up to 30 March 2026, so 2026 is a partial year.
 - Europe has no complete public equivalent yet (EUDAMED is still incomplete).
 - An authorization does not tell us whether a device is actually used in hospitals.
 - MAUDE under-reports AI-specific failures; we cross-check with recalls and incident reports.
 
 ## Repository structure
 
-- `index.html` — main page
-- `css/style.css` — all styles (Arial everywhere, sky-blue palette)
-- `data/` — cleaned datasets used by the visualizations
+- `index.html`: the single page of the site
+- `css/style.css`: all styles (Montserrat, sky-blue palette, responsive layout)
+- `js/main.js`: mobile menu, scroll animations and animated key figures
+- `js/charts.js`: the six D3 charts (animations, tooltips, data tables)
+- `js/hero3d.js`: the three.js sphere of the homepage
+- `scripts/prepare_data.py`: Python script that turns the raw FDA list into the chart data
+- `data/raw/fda_ai_devices_2026-06-29.csv`: raw FDA list (1,524 devices)
+- `data/chart-data.js`: chart data generated by the Python script
+
+## Update the data
+
+```sh
+pip install pandas
+python scripts/prepare_data.py
+```
+
+## Preview locally
+
+Open `index.html` in a browser, or run a small local server:
+
+```sh
+python -m http.server 8000
+```
+
+then go to http://localhost:8000.
