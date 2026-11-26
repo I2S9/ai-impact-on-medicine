@@ -213,15 +213,6 @@ a {
   text-align: left;
 }
 
-.hero-kicker {
-  margin: 0 0 1.25rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--blue);
-}
-
 .hero h1 {
   font-size: clamp(3rem, 7.2vw, 5.8rem);
   font-weight: 800;
@@ -282,35 +273,6 @@ a {
   text-align: center;
   font-weight: 500;
   color: var(--muted);
-}
-
-.scroll-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 1.75rem;
-  display: flex;
-  justify-content: center;
-  width: 1.6rem;
-  height: 2.6rem;
-  margin-left: -0.8rem;
-  padding-top: 0.45rem;
-  border: 2px solid var(--navy);
-  border-radius: 999px;
-  opacity: 0.5;
-}
-
-.scroll-cue-dot {
-  width: 4px;
-  height: 8px;
-  border-radius: 4px;
-  background: var(--navy);
-  animation: scroll-cue 1.8s var(--ease) infinite;
-}
-
-@keyframes scroll-cue {
-  0% { transform: translateY(0); opacity: 1; }
-  70% { transform: translateY(12px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 0; }
 }
 
 /* Hero entrance */
@@ -999,10 +961,6 @@ a {
     margin: 0 auto;
   }
 
-  .scroll-cue {
-    display: none;
-  }
-
   .stats,
   .question-grid,
   .limits-grid {
@@ -1178,9 +1136,5 @@ a {
     transform: none;
     animation: none;
     transition: none;
-  }
-
-  .scroll-cue-dot {
-    animation: none;
   }
 }
