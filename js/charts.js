@@ -121,17 +121,40 @@
       drawn = true;
     }
 
-    if ("IntersectionObserver" in window) {
-      var observer = new IntersectionObserver(function (entries) {
-        if (entries[0].isIntersecting) {
-          render(true);
-          observer.disconnect();
-        }
-      }, { threshold: 0.25 });
-      observer.observe(el);
-    } else {
-      render(false);
+    // Draw the chart once its top reaches the lower part of the screen, or
+    // straight away if it has already been scrolled past (fast scroll, anchor).
+    function check() {
+      if (drawn) return;
+      var rect = el.getBoundingClientRect();
+      if (rect.bottom < 0) {
+        render(false);
+      } else if (rect.top < window.innerHeight * 0.8) {
+        render(true);
+      }
+      if (drawn) {
+        document.removeEventListener("scroll", onScroll, { capture: true });
+      }
     }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking || drawn) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        ticking = false;
+        check();
+      });
+    }
+
+    // Safety net: check twice a second until the chart is drawn.
+    var safety = setInterval(function () {
+      check();
+      if (drawn) clearInterval(safety);
+    }, 500);
+
+    document.addEventListener("scroll", onScroll, { passive: true, capture: true });
+    window.addEventListener("load", check);
+    check();
 
     var timer;
     window.addEventListener("resize", function () {

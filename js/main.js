@@ -37,19 +37,45 @@ document.addEventListener("DOMContentLoaded", function () {
   onScroll();
 
   // ---------- Scroll reveal ----------
-  var revealItems = document.querySelectorAll(".reveal");
-  if (!("IntersectionObserver" in window) || reduceMotion) {
-    revealItems.forEach(function (el) { el.classList.add("is-visible"); });
-  } else {
-    var revealObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        }
+  // Blocks are only hidden once this code is running (class "reveal-ready"),
+  // so the content always shows if a script fails. A block is revealed as soon
+  // as its top enters the bottom 90% of the screen, or once it has been
+  // scrolled past. Positions are checked on every scroll of any element and,
+  // as a safety net, twice a second until every block is shown.
+  var pending = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+
+  function revealInView() {
+    var limit = window.innerHeight * 0.9;
+    pending = pending.filter(function (el) {
+      if (el.getBoundingClientRect().top < limit) {
+        el.classList.add("is-visible");
+        return false;
+      }
+      return true;
+    });
+    if (!pending.length && safetyTimer) {
+      clearInterval(safetyTimer);
+      safetyTimer = null;
+    }
+  }
+
+  var safetyTimer = null;
+  if (!reduceMotion) {
+    document.documentElement.classList.add("reveal-ready");
+    var ticking = false;
+    var requestReveal = function () {
+      if (ticking || !pending.length) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        revealInView();
+        ticking = false;
       });
-    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-    revealItems.forEach(function (el) { revealObserver.observe(el); });
+    };
+    document.addEventListener("scroll", requestReveal, { passive: true, capture: true });
+    window.addEventListener("resize", requestReveal);
+    window.addEventListener("load", revealInView);
+    safetyTimer = setInterval(revealInView, 500);
+    revealInView();
   }
 
   // ---------- Active link in the navigation ----------
