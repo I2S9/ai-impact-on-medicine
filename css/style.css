@@ -214,9 +214,9 @@ a {
 .hero-inner {
   width: 100%;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
-  gap: 5rem;
+  gap: 2rem;
 }
 
 .hero-content {
@@ -240,6 +240,13 @@ a {
 
 .hero-visual {
   margin: 0;
+}
+
+/* The sphere sits close to the title rather than against the right edge. */
+.hero .hero-visual {
+  justify-self: start;
+  width: 100%;
+  max-width: 540px;
 }
 
 .hero-3d {
@@ -1061,6 +1068,10 @@ a {
 
   .hero-content {
     text-align: center;
+  }
+
+  .hero .hero-visual {
+    justify-self: center;
   }
 
   .hero-3d {
