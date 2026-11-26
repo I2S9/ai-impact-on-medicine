@@ -928,7 +928,7 @@ a {
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--navy);
+  background: var(--blue);
   color: var(--white);
   padding: 2.25rem 0;
   text-align: center;
