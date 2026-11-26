@@ -224,7 +224,7 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
   font-weight: 800;
   white-space: nowrap;
   letter-spacing: -0.035em;
@@ -232,7 +232,7 @@ a {
 
 .hero-question {
   margin: 1rem 0 0;
-  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
   font-weight: 500;
   color: var(--blue-dark);
 }
