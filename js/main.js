@@ -28,13 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // ---------- Hero video: still image for visitors who prefer less motion ----------
-  var heroVideo = document.querySelector(".hero-video");
-  if (heroVideo && reduceMotion) {
-    heroVideo.removeAttribute("autoplay");
-    heroVideo.pause();
-  }
-
   // ---------- Top bar background once the page scrolls ----------
   var topbar = document.querySelector(".topbar");
   function onScroll() {
