@@ -327,11 +327,6 @@ a {
   margin: 0 0 2.75rem;
 }
 
-/* ---------- Why this topic ---------- */
-.section-why {
-  border-bottom: 1px solid var(--line);
-}
-
 .prose {
   max-width: none;
 }
