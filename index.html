@@ -8,25 +8,51 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2026-11-26a">
+  <link rel="stylesheet" href="css/style.css?v=2026-11-26g">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
-  <script src="data/chart-data.js?v=2026-11-26a" defer></script>
-  <script src="js/main.js?v=2026-11-26a" defer></script>
-  <script src="js/charts.js?v=2026-11-26a" defer></script>
-  <script src="js/hero3d.js?v=2026-11-26a" defer></script>
+  <script src="data/chart-data.js?v=2026-11-26g" defer></script>
+  <script src="js/main.js?v=2026-11-26g" defer></script>
+  <script src="js/charts.js?v=2026-11-26g" defer></script>
+  <script src="js/hero3d.js?v=2026-11-26g" defer></script>
 </head>
 <body>
   <header class="topbar">
     <nav class="nav" aria-label="Main navigation">
       <div class="container nav-inner">
-        <a class="brand" href="#top">Polygon</a>
+        <a class="brand" href="#top">
+          <svg class="brand-logo" viewBox="-52 -52 104 104" aria-hidden="true" focusable="false">
+            <g fill="none" stroke="#6b7280" stroke-width="4">
+              <ellipse rx="44" ry="17" transform="rotate(-60)"/>
+              <ellipse rx="44" ry="17" transform="rotate(0)"/>
+              <ellipse rx="44" ry="17" transform="rotate(60)"/>
+            </g>
+            <circle r="11" fill="#f26363"/>
+            <circle cx="-3.5" cy="-4" r="2.6" fill="#ffffff" opacity="0.45"/>
+            <g transform="rotate(-60)">
+              <circle r="7.5" fill="#5ccfee">
+                <animateMotion dur="4.5s" begin="-1s" repeatCount="indefinite" path="M44,0 A44,17 0 1,1 -44,0 A44,17 0 1,1 44,0"/>
+              </circle>
+            </g>
+            <g transform="rotate(0)">
+              <circle r="7.5" fill="#ffcf2e">
+                <animateMotion dur="5.5s" begin="-3s" repeatCount="indefinite" path="M44,0 A44,17 0 1,1 -44,0 A44,17 0 1,1 44,0"/>
+              </circle>
+            </g>
+            <g transform="rotate(60)">
+              <circle r="7.5" fill="#12b76a">
+                <animateMotion dur="5s" begin="-2s" repeatCount="indefinite" path="M44,0 A44,17 0 1,1 -44,0 A44,17 0 1,1 44,0"/>
+              </circle>
+            </g>
+          </svg>
+          <span>Polygon</span>
+        </a>
         <button class="nav-toggle" type="button" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
           <span class="nav-toggle-bar"></span>
         </button>
         <ul id="nav-menu" class="nav-menu">
-          <li><a href="#why">Why</a></li>
+          <li><a href="#inspiration">Inspiration</a></li>
           <li><a href="#project">Project</a></li>
           <li><a href="#questions">Questions</a></li>
           <li><a href="#charts">Charts</a></li>
@@ -57,9 +83,9 @@
   </section>
 
   <main>
-    <section id="why" class="section section-why">
-      <div class="container why-grid">
-        <h2 class="reveal">Why this topic?</h2>
+    <section id="inspiration" class="section section-why">
+      <div class="container">
+        <h2 class="reveal">Inspiration</h2>
         <div class="prose">
           <p class="reveal">
             Our course asks us to map the impact of AI through data. Most public conversations about that impact
@@ -131,13 +157,12 @@
     <section id="questions" class="section section-tint">
       <div class="container">
         <h2 class="reveal">Our questions</h2>
-        <div class="main-question reveal">
-          <p class="main-question-label">Main question</p>
-          <p class="main-question-text">
-            Despite the narrative that AI “will revolutionize medicine”, in which medical fields is AI
-            actually authorized and used?
+        <blockquote class="main-question reveal">
+          <p>
+            “Despite the narrative that AI ‘will revolutionize medicine’, in which medical fields is AI
+            actually authorized and used?”
           </p>
-        </div>
+        </blockquote>
         <ol class="question-grid">
           <li class="question q-1 reveal"><span class="q-num">Q1</span><p>How has the number of authorized AI medical devices evolved?</p></li>
           <li class="question q-2 reveal"><span class="q-num">Q2</span><p>Why does radiology dominate?</p></li>
@@ -162,7 +187,6 @@
         <!-- Extra: radial year clock -->
         <figure class="chart-block chart-feature reveal" id="fig-clock">
           <div class="chart-text">
-            <p class="chart-kicker">Year clock · Q1 · Q2</p>
             <h3>Every dot is one authorized device</h3>
             <p>
               Each ring is a year, from 2016 at the centre to 2026 on the outside; the angle is the day of the
@@ -183,7 +207,6 @@
         <!-- Mandatory 1: bar chart -->
         <figure class="chart-block reveal" id="fig-bar">
           <div class="chart-text">
-            <p class="chart-kicker">Bar chart · Q1</p>
             <h3>Authorizations have almost tripled since 2020</h3>
             <p>
               Until 2017, fewer than 30 AI devices were authorized each year. In 2025 the FDA authorized 333,
@@ -197,7 +220,6 @@
         <!-- Mandatory 2: grouped bar chart -->
         <figure class="chart-block reveal" id="fig-grouped">
           <div class="chart-text">
-            <p class="chart-kicker">Grouped bar chart · Q1 · Q2</p>
             <h3>Radiology grows faster than everything else combined</h3>
             <p>
               Over the last three full years, radiology went from 178 to 254 authorizations a year. The next
@@ -212,7 +234,6 @@
         <!-- Mandatory 3: heatmap -->
         <figure class="chart-block reveal" id="fig-heatmap">
           <div class="chart-text">
-            <p class="chart-kicker">Heatmap · Q1 · Q2</p>
             <h3>A decade of AI, specialty by specialty</h3>
             <p>
               The darker the cell, the more devices were authorized that year. Radiology lights up from 2018;
@@ -227,7 +248,6 @@
         <!-- Mandatory 4: 100% stacked bar chart -->
         <figure class="chart-block reveal" id="fig-pathway">
           <div class="chart-text">
-            <p class="chart-kicker">100% stacked bar chart · Q3</p>
             <h3>Almost every device takes the shortest route</h3>
             <p>
               96% of AI devices were cleared through the 510(k) pathway, which only requires showing that a
@@ -242,7 +262,6 @@
         <!-- Mandatory 5: waffle chart -->
         <figure class="chart-block chart-split reveal" id="fig-waffle">
           <div class="chart-text">
-            <p class="chart-kicker">Waffle chart · Q2</p>
             <h3>Out of 100 AI devices, 76 are in radiology</h3>
             <p>
               One reason for this lead: radiology data is already digital. Scans are images that algorithms can
