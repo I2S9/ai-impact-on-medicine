@@ -8,12 +8,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2026-11-26p">
+  <link rel="stylesheet" href="css/style.css?v=2026-11-26r">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
-  <script src="data/chart-data.js?v=2026-11-26p" defer></script>
-  <script src="js/main.js?v=2026-11-26p" defer></script>
-  <script src="js/charts.js?v=2026-11-26p" defer></script>
-  <script src="js/hero3d.js?v=2026-11-26p" defer></script>
+  <script src="data/chart-data.js?v=2026-11-26r" defer></script>
+  <script src="js/main.js?v=2026-11-26r" defer></script>
+  <script src="js/charts.js?v=2026-11-26r" defer></script>
+  <script src="js/hero3d.js?v=2026-11-26r" defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -56,6 +56,7 @@
           <li><a href="#project">Project</a></li>
           <li><a href="#questions">Questions</a></li>
           <li><a href="#charts">Charts</a></li>
+          <li><a href="#trends">Trends</a></li>
           <li><a href="#audience">Audience</a></li>
           <li><a href="#data">Data</a></li>
         </ul>
@@ -271,6 +272,92 @@
           </div>
           <div class="chart chart-waffle" id="chart-waffle" role="img" aria-label="Waffle chart of 100 squares: 76 radiology, 10 cardiovascular, 5 neurology, 9 other specialties."></div>
           <figcaption>Each square is 1% of the 1,524 devices. Source: FDA AI-Enabled Medical Devices list (June 2026).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="trends" class="section charts-section">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="reveal">When AI arrived, and how it is spread</h2>
+          <p class="section-subtitle reveal">Time trends and distributions behind the 1,524 FDA authorizations</p>
+          <p class="lead reveal">
+            Counting devices per specialty tells us where AI is authorized. Looking at time and at distributions
+            tells us how it got there: how fast each field grew, what the devices actually do, who builds them and
+            which regulatory route they take.
+          </p>
+        </header>
+
+        <!-- Time 1: line chart -->
+        <figure class="chart-block reveal" id="fig-cumulative">
+          <div class="chart-text">
+            <h3>Radiology took off first and never slowed down</h3>
+            <p>
+              Counting every authorization since 2012, radiology reaches 1,164 devices by March 2026. Cardiovascular,
+              neurology and all other specialties together add up to 360. Hover over the chart to read the totals
+              at any point in time.
+            </p>
+          </div>
+          <div class="chart" id="chart-cumulative" role="img" aria-label="Line chart of cumulative AI device authorizations from 2012 to March 2026: radiology 1,164, cardiovascular 147, other specialties 143, neurology 70."></div>
+          <figcaption>Cumulative number of authorizations at the end of each quarter, including the devices authorized before 2012. Source: FDA AI-Enabled Medical Devices list (June 2026).</figcaption>
+        </figure>
+
+        <!-- Time 2: small multiple line charts -->
+        <figure class="chart-block reveal" id="fig-functions">
+          <div class="chart-text">
+            <h3>AI mostly outlines and measures; it rarely gives a diagnosis</h3>
+            <p>
+              Each panel counts the devices authorized each year whose output falls in one category, on the same
+              scale. In 2025, 170 devices outlined structures on images and 157 measured them, while only 71
+              produced a classification or a diagnosis.
+            </p>
+          </div>
+          <div class="chart" id="chart-functions" role="img" aria-label="Six small line charts of device outputs per year from 2016 to 2025; segmentation and measurement grow fastest, classification or diagnosis stays lowest."></div>
+          <figcaption>Based on the 1,421 devices whose AI function is described in FDA documents; a device can have several outputs. Source: Wang et al. (2026), clinical-function annotations v1.3.0.</figcaption>
+        </figure>
+
+        <!-- Distribution 1: box plot and jitter -->
+        <figure class="chart-block reveal" id="fig-companies">
+          <div class="chart-text">
+            <h3>Most companies have a single AI device; a few giants have dozens</h3>
+            <p>
+              Each dot is a company, placed by its number of AI devices in that specialty; the box shows the middle
+              half of companies and the thick line the median. 338 of the 563 companies have only one device,
+              while imaging manufacturers such as GE HealthCare (107) and Siemens Healthineers (90) stretch
+              radiology far to the right.
+            </p>
+          </div>
+          <div class="chart" id="chart-companies" role="img" aria-label="Box plots with jittered dots of AI devices per company in each specialty group, on a log scale; the median is one device everywhere, with radiology reaching 107."></div>
+          <figcaption>Log scale. Subsidiaries of the largest manufacturers are merged under one name. Source: FDA AI-Enabled Medical Devices list (June 2026).</figcaption>
+        </figure>
+
+        <!-- Distribution 2: jitter and box plot over time -->
+        <figure class="chart-block reveal" id="fig-pathway-dates">
+          <div class="chart-text">
+            <h3>The most demanding pathway belongs to the past</h3>
+            <p>
+              Each dot is one device, placed at the date of its FDA decision. Half of the 510(k) clearances came
+              after September 2023. The 19 PMA approvals, the strictest route, are spread over three decades with a
+              median in 2016.
+            </p>
+          </div>
+          <div class="chart" id="chart-pathway-dates" role="img" aria-label="Jitter plot with box plots of decision dates for the 510(k), De Novo and PMA pathways from 1995 to 2026."></div>
+          <figcaption>Vertical position inside each row is random, to avoid overlaps. Source: FDA AI-Enabled Medical Devices list (June 2026).</figcaption>
+        </figure>
+
+        <!-- Extra: ridgeline -->
+        <figure class="chart-block reveal" id="fig-ridgeline">
+          <div class="chart-text">
+            <h3>Each specialty has its own wave</h3>
+            <p>
+              Each ridge shows when a specialty's devices were authorized, scaled to the same area so that small and
+              large specialties can be compared; the vertical line marks the median. Half of the hematology devices
+              were already authorized by October 2020; cardiovascular and radiology reached that point in 2022 and
+              2023, and neurology, anesthesiology and gastro-urology only in 2024.
+            </p>
+          </div>
+          <div class="chart" id="chart-ridgeline" role="img" aria-label="Ridgeline plot of decision dates for eight specialty groups, ordered by median date from hematology in 2020 to gastro-urology in 2024."></div>
+          <figcaption>Smoothed distributions (kernel density, bandwidth of about six months), ordered by median date. Source: FDA AI-Enabled Medical Devices list (June 2026).</figcaption>
         </figure>
       </div>
     </section>

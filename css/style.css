@@ -17,7 +17,7 @@
 
   /* Chart series (validated for colour-vision deficiencies) */
   --series-radiology: #257de0;
-  --series-cardio: #f47230;
+  --series-cardio: #f2a600;
   --series-neuro: #00b894;
   --series-other: #c9d3db;
 
@@ -224,7 +224,7 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.1rem, 4.2vw, 3.4rem);
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
   font-weight: 800;
   white-space: nowrap;
   letter-spacing: -0.035em;
@@ -232,7 +232,7 @@ a {
 
 .hero-question {
   margin: 1rem 0 0;
-  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  font-size: clamp(1.15rem, 2.2vw, 1.5rem);
   font-weight: 500;
   color: var(--blue-dark);
 }
@@ -622,6 +622,96 @@ a {
   cursor: pointer;
 }
 
+/* Line charts */
+.line-label {
+  font-size: 12px;
+  font-weight: 700;
+  fill: var(--navy);
+}
+
+.line-value {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.crosshair {
+  stroke: #8d9ba6;
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.panel-title {
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--navy);
+}
+
+.small-area {
+  fill: var(--sky-200);
+  opacity: 0.6;
+}
+
+.small-line {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+}
+
+.small-dot {
+  fill: var(--blue);
+  stroke: var(--white);
+  stroke-width: 2;
+}
+
+/* Distributions: jitter, box plots and ridgelines */
+.jitter-dot {
+  opacity: 0.55;
+}
+
+.jitter-dot:hover {
+  opacity: 1;
+  stroke: var(--navy);
+  stroke-width: 1.5;
+}
+
+.boxplot {
+  pointer-events: none;
+}
+
+.box-body {
+  fill: rgba(255, 255, 255, 0.55);
+  stroke: var(--navy);
+  stroke-width: 1.5;
+}
+
+.box-whisker {
+  stroke: var(--navy);
+  stroke-width: 1.5;
+}
+
+.box-median {
+  stroke: var(--navy);
+  stroke-width: 3;
+}
+
+.ridge-area {
+  fill-opacity: 0.85;
+  stroke: var(--white);
+  stroke-width: 1.5;
+}
+
+.ridge:hover .ridge-area {
+  fill-opacity: 1;
+}
+
+.ridge-median {
+  stroke: var(--navy);
+  stroke-width: 1.5;
+}
+
 .is-dimmed {
   opacity: 0.12;
 }
@@ -930,16 +1020,17 @@ a {
 .footer {
   background: #2b3138;
   color: var(--white);
-  padding: 2.5rem 0;
+  padding: 2rem 0 2.25rem;
   text-align: center;
   font-size: 0.9rem;
 }
 
+/* The logo sits at the same distance from the top edge and from the text. */
 .footer-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
+  gap: 2rem;
 }
 
 .footer-logo {
@@ -984,7 +1075,7 @@ a {
 }
 
 /* ---------- Small screens ---------- */
-@media (max-width: 760px) {
+@media (max-width: 820px) {
   .js .nav-toggle {
     display: flex;
   }

@@ -33,7 +33,7 @@
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var COLORS = {
     Radiology: new THREE.Color("#257de0"),
-    Cardiovascular: new THREE.Color("#f47230"),
+    Cardiovascular: new THREE.Color("#f2a600"),
     Neurology: new THREE.Color("#00b894"),
     Other: new THREE.Color("#9fb0bd")
   };
