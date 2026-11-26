@@ -3,7 +3,7 @@
 Interactive data visualization website for the Data Visualization course, Università di Genova (2026/27).
 Part of the course theme **Mapping the Impact of AI through Data**.
 
-**Live site:** https://i2s9.github.io/mapping-the-impact-of-ai/
+**Live site:** https://i2s9.github.io/ai-impact-on-medicine/
 
 **Group Polygon:** Inès Gbadamassi, Maryse Goeh-Akue, James Fosting Tahku, Illia
 
